@@ -152,6 +152,7 @@ function App() {
               type="radio"
               id="hot"
               name="weather"
+              value="hot"
               className="modal__radio-input"
               checked={newItemWeather === "hot"}
               onChange={() => setNewItemWeather("hot")}
@@ -166,6 +167,7 @@ function App() {
               type="radio"
               id="warm"
               name="weather"
+              value="warm"
               className="modal__radio-input"
               checked={newItemWeather === "warm"}
               onChange={() => setNewItemWeather("warm")}
@@ -180,6 +182,7 @@ function App() {
               type="radio"
               id="cold"
               name="weather"
+              value="cold"
               className="modal__radio-input"
               checked={newItemWeather === "cold"}
               onChange={() => setNewItemWeather("cold")}
