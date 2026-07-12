@@ -1,0 +1,15 @@
+/*
+  Drop any custom font files into ./fonts and register them here with
+  @font-face, e.g.:
+
+  @font-face {
+    font-family: "Helvetica Neue";
+    src: url("./fonts/HelveticaNeue-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  Until then, index.css falls back to the system sans-serif stack, so the
+  app renders correctly without any font files present.
+*/

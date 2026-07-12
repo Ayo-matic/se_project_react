@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+  font-size: 12px;
+  color: #6b6f76;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__copyright,
+.footer__year {
+  margin: 0;
+}
