@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 
 function Header({
@@ -12,7 +14,9 @@ function Header({
   return (
     <header className="header">
       <div className="header__left">
-        <img src={logo} alt="WTWR logo" className="header__logo" />
+        <Link to="/" className="header__logo-link">
+          <img src={logo} alt="WTWR logo" className="header__logo" />
+        </Link>
         <p className="header__date-location">
           {currentDate}, {city || "..."}
         </p>
@@ -32,6 +36,7 @@ function Header({
           isMobileMenuOpened ? "header__right_visible" : ""
         }`}
       >
+        <ToggleSwitch />
         <button
           type="button"
           onClick={onAddClick}
@@ -39,10 +44,12 @@ function Header({
         >
           + Add clothes
         </button>
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img src={avatar} alt="User avatar" className="header__avatar" />
-        </div>
+        <Link to="/profile" className="header__user-link">
+          <div className="header__user-container">
+            <p className="header__username">Terrence Tegegne</p>
+            <img src={avatar} alt="User avatar" className="header__avatar" />
+          </div>
+        </Link>
       </div>
     </header>
   );

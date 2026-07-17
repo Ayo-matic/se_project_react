@@ -44,6 +44,10 @@
 
 .item-modal__footer {
   padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .item-modal__name {
@@ -62,4 +66,25 @@
   .item-modal__content {
     max-width: calc(100% - 32px);
   }
+}
+
+.item-modal__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-modal__delete-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ff4d00;
+  padding: 0;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.item-modal__delete-btn:hover {
+  opacity: 0.7;
 }

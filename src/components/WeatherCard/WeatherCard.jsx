@@ -1,10 +1,18 @@
+import { useContext } from "react";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import "./WeatherCard.css";
 
 function WeatherCard({ weatherData }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  const temperature = weatherData.temperature?.[currentTemperatureUnit];
+
   return (
     <section className="weather-card">
       <p className="weather-card__temp">
-        {weatherData.temp !== null ? `${weatherData.temp}°F` : "--°F"}
+        {temperature !== undefined && temperature !== null
+          ? `${temperature}°${currentTemperatureUnit}`
+          : `--°${currentTemperatureUnit}`}
       </p>
       <svg
         className="weather-card__icon"

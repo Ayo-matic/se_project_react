@@ -11,16 +11,27 @@ function getWeather() {
 }
 
 // Extracts only the pieces of the OpenWeather response the app needs:
-// the city name and the current temperature, rounded to the nearest degree.
+// the city name and the current temperature in both units, rounded to the
+// nearest degree. The API returns Fahrenheit (units=imperial), so the
+// Celsius value is derived from it.
 function parseWeatherData(data) {
   const city = data.name;
-  const temp = Math.round(data.main.temp);
+  const temperature = {
+    F: Math.round(data.main.temp),
+    C: Math.round(((data.main.temp - 32) * 5) / 9),
+  };
   const conditions = data.weather?.[0]?.main ?? "Clear";
   const isDay =
     Date.now() / 1000 >= data.sys.sunrise &&
     Date.now() / 1000 < data.sys.sunset;
 
-  return { city, temp, conditions, isDay, type: getWeatherCondition(temp) };
+  return {
+    city,
+    temperature,
+    conditions,
+    isDay,
+    type: getWeatherCondition(temperature.F),
+  };
 }
 
 // Buckets a Fahrenheit temperature into a coarse weather category used to
