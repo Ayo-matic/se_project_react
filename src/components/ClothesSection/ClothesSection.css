@@ -28,3 +28,26 @@
 .clothes-section__add-btn:hover {
   color: var(--color-text);
 }
+
+/* The clothes section owns its list layout so the profile route renders
+   correctly no matter which page loads first. */
+.clothes-section__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .clothes-section__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .clothes-section__items {
+    grid-template-columns: 1fr;
+  }
+}

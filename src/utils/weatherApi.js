@@ -1,13 +1,9 @@
 import { weatherApiUrl } from "./constants";
+import { checkResponse } from "./api";
 
 // Fetches raw weather data from the OpenWeather API
 function getWeather() {
-  return fetch(weatherApiUrl).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Error: ${res.status}`);
-  });
+  return fetch(weatherApiUrl).then(checkResponse);
 }
 
 // Extracts only the pieces of the OpenWeather response the app needs:
