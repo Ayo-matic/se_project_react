@@ -29,6 +29,35 @@
   cursor: pointer;
 }
 
+.card__like-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  margin: 0;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1;
+  color: #a0a0a0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.card__like-btn:hover {
+  color: var(--color-accent);
+}
+
+.card__like-btn_active {
+  color: #1a1b22;
+}
+
 @media screen and (max-width: 480px) {
   .card {
     height: 180px;

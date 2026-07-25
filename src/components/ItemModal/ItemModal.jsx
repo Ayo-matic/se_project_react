@@ -1,6 +1,13 @@
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./ItemModal.css";
 
 function ItemModal({ card, isOpen, onClose, onDeleteClick }) {
+  const currentUser = useContext(CurrentUserContext);
+
+  // Only the item's owner should see the delete button.
+  const isOwn = currentUser && card?.owner === currentUser._id;
+
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -33,13 +40,15 @@ function ItemModal({ card, isOpen, onClose, onDeleteClick }) {
             <p className="item-modal__name">{card?.name}</p>
             <p className="item-modal__weather">Weather: {card?.weather}</p>
           </div>
-          <button
-            type="button"
-            className="item-modal__delete-btn"
-            onClick={() => onDeleteClick(card)}
-          >
-            Delete item
-          </button>
+          {isOwn && (
+            <button
+              type="button"
+              className="item-modal__delete-btn"
+              onClick={() => onDeleteClick(card)}
+            >
+              Delete item
+            </button>
+          )}
         </div>
       </div>
     </div>
