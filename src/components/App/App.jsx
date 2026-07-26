@@ -147,7 +147,7 @@ function App() {
     const token = getToken();
     updateProfile({ name, avatar }, token)
       .then((updatedUser) => {
-        setCurrentUser(updatedUser);
+        setCurrentUser((prevUser) => ({ ...prevUser, ...updatedUser }));
         handleCloseModal();
       })
       .catch((err) => {

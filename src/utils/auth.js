@@ -1,13 +1,6 @@
-const baseUrl = "http://localhost:3001";
+import { checkResponse } from "./api";
 
-// Shared response check, matching the pattern used in api.js: resolve with
-// parsed JSON when the request succeeded, reject with the status otherwise.
-function checkResponse(res) {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-}
+const baseUrl = "http://localhost:3001";
 
 // POST /signup — register a new user. Expects { name, avatar, email, password }.
 export function register({ name, avatar, email, password }) {

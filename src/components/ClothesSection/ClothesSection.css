@@ -40,6 +40,27 @@
   margin: 0;
 }
 
+.clothes-section__items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .clothes-section__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .clothes-section__items {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .clothes-section__items {
     grid-template-columns: repeat(2, 1fr);

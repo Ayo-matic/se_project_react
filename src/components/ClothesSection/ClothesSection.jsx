@@ -23,7 +23,7 @@ function ClothesSection({ clothingItems, onCardClick, onCardLike, onAddClick }) 
           + Add new
         </button>
       </div>
-      <ul className="cards__list">
+      <ul className="clothes-section__items">
         {ownItems.map((item) => (
           <ItemCard
             key={item._id}
